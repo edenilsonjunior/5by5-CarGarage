@@ -1,4 +1,5 @@
 ﻿using Controllers;
+using Models;
 
 namespace View
 {
@@ -10,7 +11,6 @@ namespace View
             Console.WriteLine("====|Garagem de carros|=====");
 
             var controller = new CarController();
-
             var list = controller.GetAll();
             bool result = controller.InsertAll(list);
 

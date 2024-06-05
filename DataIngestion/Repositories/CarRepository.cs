@@ -36,9 +36,12 @@ namespace Repositories
             if (!File.Exists(_path + _fileName))
                 return null;
 
+            string str;
+            using (var sr = new StreamReader(_path + _fileName))
+            {
+                str = sr.ReadToEnd();
+            }
 
-            using var sr = new StreamReader(_path + _fileName);
-            string str = sr.ReadToEnd();
             var list = JsonConvert.DeserializeObject<List<Car>>(str);
 
             if (list == null)
