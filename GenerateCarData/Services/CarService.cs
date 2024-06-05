@@ -7,12 +7,8 @@ namespace Services
     {
         private CarRepository _carRepository;
 
-        public CarService()
-        {
-            _carRepository = new CarRepository();
-        }
+        public CarService() { _carRepository = new CarRepository(); }
 
         public bool InsertAll(List<Car> list) => _carRepository.InsertAll(list);
-
     }
 }

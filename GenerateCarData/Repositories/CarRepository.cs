@@ -1,4 +1,6 @@
 ﻿using Models;
+using Newtonsoft.Json;
+using System.Text.Json;
 
 namespace Repositories
 {
@@ -16,21 +18,11 @@ namespace Repositories
             CreateFile();
         }
 
-
         public bool InsertAll(List<Car> list)
         {
-            string json = "[";
-
-            foreach (var item in list)
-                json += item.ToJson() + ",";
-
-            json = json.Substring(0, json.Length - 1);
-            json += "]";
-
             try
             {
-                using var sw = new StreamWriter(_path + _fileName);
-                sw.WriteLine(json);
+                File.WriteAllText(_path + _fileName, JsonConvert.SerializeObject(list));
             }
             catch (Exception e)
             {
@@ -39,7 +31,6 @@ namespace Repositories
             }
             return true;
         }
-
 
         private void CreateDirectory()
         {
@@ -55,6 +46,5 @@ namespace Repositories
                 f.Close();
             }
         }
-
     }
 }

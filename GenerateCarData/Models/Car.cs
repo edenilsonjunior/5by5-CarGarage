@@ -45,9 +45,6 @@ namespace Models
             return str;
         }
 
-        public string ToJson() => JsonConvert.SerializeObject(this);
-
-
         public string ToXml()
         {
             var xml = new XElement("car",
