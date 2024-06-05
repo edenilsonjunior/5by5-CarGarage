@@ -37,6 +37,9 @@ namespace View
                 Console.WriteLine(item);
             }
             controller.GenerateXml(filterByYear, "filtradoPeloAno");
+
+            Console.WriteLine("Os relatorios foram gerados com sucesso!");
+            Console.WriteLine("Eles estao disponiveis em: 'pasta do projeto/Documents'");
         }
     }
 }
