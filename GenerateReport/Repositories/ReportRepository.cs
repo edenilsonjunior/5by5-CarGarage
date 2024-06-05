@@ -59,5 +59,33 @@ namespace Repositories
 
             return list;
         }
+
+
+        public void GenerateXML(List<Car> cars, string title)
+        {
+            string path = ConfigurationManager.AppSettings["Path"];
+            string fileName = title + ".xml";
+            string filePath = path + fileName;
+
+
+            string xml = "<Cars>";
+
+            foreach (var item in cars)
+            {
+                xml += item.ToXml();
+            }
+
+            xml += "</Cars>";
+
+            if (!File.Exists(filePath))
+            {
+                var fs = File.Create(filePath);
+                fs.Close();
+            }
+
+            using var sw = new StreamWriter(filePath);
+
+            sw.WriteLine(xml);
+        }
     }
 }

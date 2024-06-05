@@ -1,5 +1,6 @@
 ﻿using Controllers;
 using Models;
+using System.Net.WebSockets;
 
 namespace View
 {
@@ -12,22 +13,30 @@ namespace View
             ReportController controller = new();
 
             Console.WriteLine("Carros com status ativos:");
-            foreach (var item in controller.GetByStatus())
+            var filterByStatus = controller.GetByStatus();
+            foreach (var item in filterByStatus)
             {
                 Console.WriteLine(item);
             }
+            controller.GenerateXml(filterByStatus, "filtradoPeloStatus");
+
 
             Console.WriteLine("Carros com cor vermelha:");
-            foreach (var item in controller.GetByRedColor())
+
+            var filterByColor = controller.GetByRedColor();
+            foreach (var item in filterByColor)
             {
                 Console.WriteLine(item);
             }
+            controller.GenerateXml(filterByColor, "filtradoPelaCor");
 
             Console.WriteLine("Carros fabricados em 2010 e 2011:");
-            foreach (var item in controller.GetByYear())
+            var filterByYear = controller.GetByYear();
+            foreach (var item in filterByYear)
             {
                 Console.WriteLine(item);
             }
+            controller.GenerateXml(filterByYear, "filtradoPeloAno");
         }
     }
 }

@@ -1,0 +1,25 @@
+<Cars><car>
+  <plate>ELA-3733</plate>
+  <name>Ford</name>
+  <yearManufacture>2003</yearManufacture>
+  <yearModel>2011</yearModel>
+  <color>Vermelho</color>
+</car><car>
+  <plate>MHL-0220</plate>
+  <name>BMW</name>
+  <yearManufacture>2003</yearManufacture>
+  <yearModel>2009</yearModel>
+  <color>Vermelho</color>
+</car><car>
+  <plate>RAA-2153</plate>
+  <name>Hyundai</name>
+  <yearManufacture>2002</yearManufacture>
+  <yearModel>2005</yearModel>
+  <color>Vermelho</color>
+</car><car>
+  <plate>ZVB-8042</plate>
+  <name>BMW</name>
+  <yearManufacture>1991</yearManufacture>
+  <yearModel>2014</yearModel>
+  <color>Vermelho</color>
+</car></Cars>

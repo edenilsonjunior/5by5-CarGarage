@@ -20,5 +20,6 @@ namespace Controllers
 
         public List<Car> GetByYear() => _service.GetByYear();
 
+        public void GenerateXml(List<Car> cars, string fileName) => _service.GenerateXml(cars, fileName);
     }
 }

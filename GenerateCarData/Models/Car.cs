@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Xml.Linq;
 
 namespace Models
 {
@@ -45,6 +46,20 @@ namespace Models
         }
 
         public string ToJson() => JsonConvert.SerializeObject(this);
+
+
+        public string ToXml()
+        {
+            var xml = new XElement("car",
+                new XElement("plate", Plate),
+                new XElement("name", Name),
+                new XElement("yearManufacture", YearManufacture),
+                new XElement("yearModel", YearModel),
+                new XElement("color", Color)
+            );
+
+            return xml.ToString();
+        }
     }
 }
 

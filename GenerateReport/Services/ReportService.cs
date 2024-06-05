@@ -65,5 +65,8 @@ namespace Services
             }
             return filteredList;
         }
+    
+        public void GenerateXml(List<Car> cars, string fileName) => _repository.GenerateXML(cars, fileName);
+
     }
 }
