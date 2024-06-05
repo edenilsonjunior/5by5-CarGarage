@@ -12,30 +12,8 @@ namespace Controllers
             _carService = new CarService();
         }
 
-        public bool InsertAll(List<Car> cars)
-        {
-            try
-            {
-                bool result = _carService.InsertAll(cars);
-                return result;
-            }
-            catch (InvalidOperationException)
-            {
-                throw;
-            }
-        }
+        public bool InsertAll(List<Car> cars) => _carService.InsertAll(cars);
 
-        public List<Car> GetAll()
-        {
-            try
-            {
-                var list = _carService.GetAll();
-                return list;
-            }
-            catch (InvalidOperationException)
-            {
-                throw;
-            }
-        }
+        public List<Car> GetAll() => _carService.GetAll();
     }
 }

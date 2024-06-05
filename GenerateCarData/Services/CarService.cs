@@ -12,9 +12,7 @@ namespace Services
             _carRepository = new CarRepository();
         }
 
-        public bool InsertAll(List<Car> list)
-        {
-            return _carRepository.InsertAll(list);
-        }
+        public bool InsertAll(List<Car> list) => _carRepository.InsertAll(list);
+
     }
 }

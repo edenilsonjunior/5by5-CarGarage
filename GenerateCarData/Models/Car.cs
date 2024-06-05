@@ -4,6 +4,9 @@ namespace Models
 {
     public class Car
     {
+        public readonly static string INSERT = "INSERT INTO Car (Plate, Name, YearManufacture, YearModel, Color) VALUES (@Plate, @Name, @YearManufacture, @YearModel, @Color)";
+        public readonly static string SELECT = "SELECT * FROM Car";
+
         [JsonProperty("plate")]
         public string Plate { get; set; }
 

@@ -1,6 +1,4 @@
 ﻿using Controllers;
-using Models;
-using Newtonsoft.Json;
 
 namespace View
 {
@@ -11,35 +9,15 @@ namespace View
             Console.Clear();
             Console.WriteLine("====|Garagem de carros|=====");
 
-            List<Car> list;
             var controller = new CarController();
-            bool result;
 
-            try
-            {
-                list = controller.GetAll();
-            }
-            catch (InvalidOperationException e)
-            {
-                Console.WriteLine("Erro: " + e.Message);
-                return;
-            }
+            var list = controller.GetAll();
+            bool result = controller.InsertAll(list);
 
-            try
-            {
-                result = controller.InsertAll(list);
-            }
-            catch (InvalidOperationException e)
-            {
-                Console.WriteLine("Erro: " + e.Message);
-                return;
-            }
-
-            if(result)
+            if (result)
                 Console.WriteLine("Dados inseridos com sucesso!");
             else
                 Console.WriteLine("Falha ao inserir os dados!");
-                
         }
     }
 }

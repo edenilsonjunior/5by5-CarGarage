@@ -22,43 +22,19 @@ namespace Repositories
 
         public bool InsertAll(List<Car> cars)
         {
-            if (cars.Count == 0)
-                throw new InvalidOperationException("Lista vazia");
-
-
             using var connection = new SqlConnection(_conn);
-            try
-            {
-                connection.Open();
-            }
-            catch (Exception)
-            {
-                throw new InvalidOperationException("Falha ao conectar com o banco de dados");
-            }
+            connection.Open();
 
-            var query = "INSERT INTO Car (Plate, Name, YearManufacture, YearModel, Color) ";
-            query += "VALUES (@Plate, @Name, @YearManufacture, @YearModel, @Color)";
-
-            int result;
-            try
-            {
-                 result = connection.Execute(query, cars);
-            }
-            catch (Exception)
-            {
-                throw new InvalidOperationException("Falha ao inserir os dados");
-            }
-
-            return result > 0;
+            return connection.Execute(Car.INSERT, cars) > 0;
         }
 
         public List<Car> GetAll()
         {
             if (!Directory.Exists(_path))
-                throw new DirectoryNotFoundException("Diretório não encontrado");
+                return null;
 
             if (!File.Exists(_path + _fileName))
-                throw new FileNotFoundException("Arquivo não encontrado");
+                return null;
 
 
             using var sr = new StreamReader(_path + _fileName);
@@ -66,7 +42,7 @@ namespace Repositories
             var list = JsonConvert.DeserializeObject<List<Car>>(str);
 
             if (list == null)
-                throw new NullReferenceException("Lista vazia");
+                return null;
 
             return list;
         }

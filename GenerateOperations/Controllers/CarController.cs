@@ -9,7 +9,9 @@ namespace Controllers
 
         public CarController() { _carService = new(); }
 
+        public bool Insert(Car c) => _carService.Insert(c);
 
-        public bool InsertAll(List<Car> list) => _carService.InsertAll(list);
+        public List<Car> GetAll() => _carService.GetAll();
+
     }
 }

@@ -16,11 +16,11 @@ GO
 
 CREATE TABLE Car(
 
-    plate VARCHAR(8),
-    name varchar(255),
-    year_manufacture INT,
-    year_model INT,
-    color VARCHAR(255),
+    Plate VARCHAR(8),
+    Name varchar(255),
+    YearManufacture INT,
+    YearModel INT,
+    Color VARCHAR(255),
 
     CONSTRAINT pkcar PRIMARY KEY (plate)
 );
@@ -36,13 +36,13 @@ CREATE TABLE Operation(
 
 CREATE TABLE CarOperation(
 
-    car_plate VARCHAR(8),
-    operation_id INT,
-    status BIT,
+    CarPlate VARCHAR(8),
+    OperationId INT,
+    Status BIT,
 
-    CONSTRAINT pkcaroperation PRIMARY KEY (car_plate, operation_id),
-    CONSTRAINT fkcar FOREIGN KEY (car_plate) REFERENCES Car(plate),
-    CONSTRAINT fkoperation FOREIGN KEY (operation_id) REFERENCES Operation(id)
+    CONSTRAINT pkcaroperation PRIMARY KEY (CarPlate, OperationId),
+    CONSTRAINT fkcar FOREIGN KEY (CarPlate) REFERENCES Car(plate),
+    CONSTRAINT fkoperation FOREIGN KEY (OperationId) REFERENCES Operation(id)
 );
 
 
