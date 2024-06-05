@@ -12,6 +12,8 @@ namespace View
 
             bool insert = new CarController().InsertAll(list);
 
+            Console.Clear();
+            Console.WriteLine("====|Garagem de carros|=====");
             if (!insert)
                 Console.WriteLine("Erro ao inserir os carros.");
             else
